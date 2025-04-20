@@ -1,14 +1,15 @@
-const express = require('express')
-require('dotenv').config()
-require('./lib/db')
-const cors = require('cors')
-const cookieparser = require('cookie-parser')
-const path = require('path')
+import express from "express";
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+import cors from "cors";
 
-const authRoutes = require('./routes/authRoute')
-const messageRoutes = require('./routes/messageRoute')
-const { app, server} = require("./lib/socket")
-require('dotenv').config()
+import path from "path";
+
+import { connectDB } from "./lib/db.js";
+
+import authRoutes from "./routes/auth.route.js";
+import messageRoutes from "./routes/message.route.js";
+import { app, server } from "./lib/socket.js";
 
 
 app.use(express.json({ limit: '10mb' }));
